@@ -205,7 +205,7 @@ class BLSTMEncoder(nn.Module):
                 batch = batch.cuda()
             batch = self.forward(
                 (batch, lengths[stidx:stidx + bsize])).data.cpu().numpy()
-            embeddings.append(batch)
+            embeddings.append(batch[0])
         embeddings = np.vstack(embeddings)
 
         # unsort
